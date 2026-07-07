@@ -1,38 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Perfil</title>
-    <link rel="stylesheet" href="style.css"> 
+    <title data-i18n="title">My Profile</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main class="container">
-        <img src="imagem.jpg" alt="Foto de Beatriz Bueno" class="avatar"> 
+
+        <button class="lang-toggle" id="langToggle" aria-label="Switch language">PT</button>
+
+        <img src="imagem.jpg" alt="Beatriz Bueno profile photo" class="avatar">
 
         <h1>Beatriz Bueno</h1>
 
-        <p class="role">Desenvolvedora em Formação</p>
+        <p class="role" data-i18n="role">Developer in Training</p>
 
-        <p class="bio">
-            Estudante apaixonada por Cibersegurança. 
-            Finalizando o 3º ano do curso de Desenvolvimento de Sistemas.
-            Atualmente aprendendo Python e aprimorando minhas habilidades em PHP, JS, CSS e HTML.
+        <p class="bio" data-i18n="bio">
+            Student passionate about Cybersecurity.
+            Finishing the 3rd year of the Systems Development course.
+            Currently learning Python and improving my skills in PHP, JS, CSS and HTML.
         </p>
 
         <section class="links">
-            <h2>Minhas Redes Sociais</h2>
+            <h2 data-i18n="social_title">My Social Networks</h2>
 
             <a href="https://github.com/beatrizbuenoalt" target="_blank">GitHub</a>
             <a href="https://linkedin.com/in/beatriz-bueno-2026a335b" target="_blank">LinkedIn</a>
             <a href="https://instagram.com/beabueno.dev" target="_blank">Instagram</a>
+        </section>
 
+        <section class="projects">
+            <h2 data-i18n="projects_title">My Projects</h2>
+
+            <div class="project-list">
+                <a href="https://github.com/beatrizbuenoalt/game-rsp" target="_blank" class="project-card">
+                    <span class="project-name">game-rsp</span>
+                    <span class="project-lang">Python</span>
+                </a>
+                <a href="https://github.com/beatrizbuenoalt/tata-chatbot" target="_blank" class="project-card">
+                    <span class="project-name">tata-chatbot</span>
+                    <span class="project-lang">Python</span>
+                </a>
+                <a href="https://github.com/beatrizbuenoalt/meu-perfil" target="_blank" class="project-card">
+                    <span class="project-name">meu-perfil</span>
+                    <span class="project-lang">CSS</span>
+                </a>
+            </div>
         </section>
 
         <section class="techs">
-            <h2>Tecnologias</h2>
+            <h2 data-i18n="techs_title">Technologies</h2>
 
             <ul>
+                <li>Python</li>
                 <li>HTML</li>
                 <li>CSS</li>
                 <li>PHP</li>
@@ -42,5 +64,51 @@
         </section>
 
     </main>
+
+    <script>
+        const translations = {
+            en: {
+                title: "My Profile",
+                role: "Developer in Training",
+                bio: "Student passionate about Cybersecurity. Finishing the 3rd year of the Systems Development course. Currently learning Python and improving my skills in PHP, JS, CSS and HTML.",
+                social_title: "My Social Networks",
+                projects_title: "My Projects",
+                techs_title: "Technologies"
+            },
+            pt: {
+                title: "Meu Perfil",
+                role: "Desenvolvedora em Formação",
+                bio: "Estudante apaixonada por Cibersegurança. Finalizando o 3º ano do curso de Desenvolvimento de Sistemas. Atualmente aprendendo Python e aprimorando minhas habilidades em PHP, JS, CSS e HTML.",
+                social_title: "Minhas Redes Sociais",
+                projects_title: "Meus Projetos",
+                techs_title: "Tecnologias"
+            }
+        };
+
+        const langToggle = document.getElementById("langToggle");
+        const html = document.documentElement;
+
+        function setLang(lang) {
+            html.lang = lang;
+            langToggle.textContent = lang === "en" ? "PT" : "EN";
+
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.dataset.i18n;
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            localStorage.setItem("preferred-lang", lang);
+        }
+
+        const saved = localStorage.getItem("preferred-lang") || "en";
+        setLang(saved);
+
+        langToggle.addEventListener("click", () => {
+            const next = html.lang === "en" ? "pt" : "en";
+            setLang(next);
+        });
+    </script>
 </body>
 </html>
