@@ -1,0 +1,180 @@
+/*importa fontes*/
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+
+
+/*remove estilo padrão do navegador*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*define cor e alinha tudo no centro*/
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #0f0f0f;
+    color: #f0ede6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*limita a largura, centraliza o texto e cria espaço interno*/
+.container {
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+/*ajusta a imagem de perfil*/
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #402255;
+    margin-bottom: 1.5rem;
+}
+
+/*estiliza o titulo, cargo e a bio*/
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.role {
+    color: #733f99;
+    font-size: 0.9rem;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.bio {
+    color: #a09c95;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+.links h2, .techs h2 {
+    font-size: 0.75rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: #733f99;
+    margin-bottom: 1rem;
+}
+
+.links {
+    gap: 0.8rem;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+
+.links a {
+    text-decoration: none;
+    color: #f0ede6;
+    border: 1px solid #333;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.links a:hover {
+    border-color: #733f99;
+    color: #733f99;
+}
+
+.lang-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #f0ede6;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.lang-toggle:hover {
+    border-color: #733f99;
+    color: #733f99;
+}
+
+.projects {
+    margin-bottom: 2.5rem;
+}
+
+.projects h2 {
+    font-size: 0.75rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: #733f99;
+    margin-bottom: 1rem;
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.project-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    padding: 0.7rem 1.2rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.project-card:hover {
+    border-color: #733f99;
+    background: #222;
+}
+
+.project-name {
+    color: #f0ede6;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.project-lang {
+    color: #a09c95;
+    font-size: 0.8rem;
+    font-family: monospace;
+    background: #0f0f0f;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+}
+
+.techs ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+}
+
+.techs li {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #a09c95;
+    font-family: monospace;
+}
+
+
+
